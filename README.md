@@ -1,2 +1,2 @@
 # miyavProj
-Created with CodeSandbox
+npm run start is the script for runnig project.
