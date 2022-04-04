@@ -12,5 +12,3 @@ export default (url, callback) => {
       url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName;
     document.body.appendChild(script);
   };
-
-  

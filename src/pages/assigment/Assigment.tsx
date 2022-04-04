@@ -1,12 +1,9 @@
 
 import { useEffect, useState } from "react";
 import {getDataFromItunes} from "../../service/dataService";
-import {sortAndReduceArray} from "../../helpers/dataHelper"
 const Assigment = () => {
-
     let [elements,setElements] = useState(['elementA','elementB','elementC','elementD','elementE']) ;
     let [responseItems,setResponseItems] = useState([]) ;
-
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -29,7 +26,6 @@ const Assigment = () => {
     }
 
    const handleChange=  (e: React.ChangeEvent<HTMLInputElement>)=> {
-       //https://stackoverflow.com/questions/40676343/typescript-input-onchange-event-target-value
     let newValue = e.target.value;
     sendRequest(newValue);
     }
