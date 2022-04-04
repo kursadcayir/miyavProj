@@ -1,5 +1,3 @@
-
-
 interface itunesObject {
     collectionName : string
 }
