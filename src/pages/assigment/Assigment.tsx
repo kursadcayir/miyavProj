@@ -7,22 +7,19 @@ const Assigment = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            rotateLeft()
+            rotateArrayLeft()
         }, 1000);
         return () => {return clearInterval(interval); };
     }, [responseItems]);
 
-    function rotateLeft() : void { 
-        let lefted = rotateArrayLeft(elements);
-        setElements([...lefted]);
-    }
-    function rotateArrayLeft(arr : any[]) : any[] {
-        let first  = arr.shift() ;
+    function rotateArrayLeft() {
+        let first  = elements.shift();
         if(responseItems.length > 0) { 
             first = responseItems.shift();
         }
-        arr.push(first);
-        return arr;
+        if(first != undefined) 
+            elements.push(first);
+        setElements([...elements]);
     }
 
    const handleChange=  (e: React.ChangeEvent<HTMLInputElement>)=> {
