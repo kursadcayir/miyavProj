@@ -2,31 +2,31 @@
 import { useEffect, useState } from "react";
 import {getDataFromItunes} from "../../service/dataService";
 const Assigment = () => {
-    let [elements,setElements] = useState(['elementA','elementB','elementC','elementD','elementE']) ;
-    let [responseItems,setResponseItems] = useState([]) ;
+    const [elements,setElements] = useState(['A','B','C','D','E']);
+    const [responseItems,setResponseItems] = useState([]);
 
     useEffect(() => {
         const interval = setInterval(() => {
             rotateLeft()
         }, 1000);
-        return () => clearInterval(interval);
+        return () => {return clearInterval(interval); };
     }, [responseItems]);
 
     function rotateLeft() : void { 
         let lefted = rotateArrayLeft(elements);
         setElements([...lefted]);
     }
-    function rotateArrayLeft(arr : any[]) :any[] {
+    function rotateArrayLeft(arr : any[]) : any[] {
         let first  = arr.shift() ;
         if(responseItems.length > 0) { 
             first = responseItems.shift();
         }
-        arr.push(first); 
+        arr.push(first);
         return arr;
     }
 
    const handleChange=  (e: React.ChangeEvent<HTMLInputElement>)=> {
-    let newValue = e.target.value;
+    const newValue = e.target.value;
     sendRequest(newValue);
     }
 
@@ -36,7 +36,7 @@ const Assigment = () => {
 
     const renderItems =(elements : string[]) =>{ 
         return <ul>
-            {elements.map( element => (<li> {element} </li>) )}
+            {elements.map( (element,index) => (<li key={index}> {element} </li>) )}
         </ul>
     }
 
